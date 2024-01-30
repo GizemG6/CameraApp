@@ -41,7 +41,7 @@ class CameraApp:
             cv2.rectangle(frame, (200, 300), (400, 128), (0, 255, 0), 2)
 
             name = self.entry_name.get()
-            path_directory = f"/home/gizemgunes/ros2_ws/src/camera/camera/photos/{name}"
+            path_directory = f".../camera/photos/{name}"
 
             if not os.path.exists(path_directory):
                 os.makedirs(path_directory)
@@ -68,7 +68,7 @@ class CameraApp:
 
     def train(self):
         name = self.entry_name.get()
-        train_dir = f"/home/gizemgunes/ros2_ws/src/camera/camera/photos"
+        train_dir = f".../camera/photos"
         datagen = ImageDataGenerator(rescale=1. / 255, validation_split=0.2)
 
         batch_size = 1024
@@ -110,7 +110,7 @@ class CameraApp:
             validation_data=validation_generator
         )
 
-        save_path = f"/home/gizemgunes/ros2_ws/src/camera/camera/train_keras/{name}.h5"
+        save_path = f".../camera/train_keras/{name}.h5"
         model.save(save_path)
         print(f"Eğitim tamamlandı, model başarıyla kaydedildi: {save_path}")
 
