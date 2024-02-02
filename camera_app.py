@@ -111,7 +111,8 @@ class CameraApp:
             tf.keras.layers.Dense(3, activation='softmax')
         ])
 
-        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+        optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
         epochs = 10
         history = model.fit(
